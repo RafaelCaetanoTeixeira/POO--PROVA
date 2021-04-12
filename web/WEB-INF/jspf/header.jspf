@@ -1,3 +1,24 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-<h2>Hello World!</h2>
+<h2>Rafael</h2>
+<hr>
+<br>
+    
+    <% if(request.getParameter("session.user")!= null){
+        session.setAtribute("session.user", request.getParameter("session.user"));
+        response.sendRedirect(request.getRequestURI());
+    } else if(request.getParameter("session.sair") !=null){
+        session.removeAtribute("session.user");
+        response.sendRedirect(request.getRequestURI());
+    }
+    %>
+    
+        <% if(session.getAtribute("session.user") !null){%>
+        <form>
+            <p>Usuario: <% session.getAtribute("session.user")%></p>
+            <a href="dindex.jsp">Pagina Inicial</a>
+            <a href="disciplinas.jsp">Disciplinas</a> <br><br>
+            <input type="submit" name="session.sair" value="Sair"/>
+            
+            
+        </form>

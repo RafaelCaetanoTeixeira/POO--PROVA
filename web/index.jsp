@@ -13,7 +13,10 @@
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        
+        Nome: Rafael Caetano Teixeira <br>
+        RA: 1290481922039 <br>
+        Data de Início: 2° semestre de 2019 <br>
+        GitHub: <a href="https://github.com/RafaelCaetanoTeixeira">https://github.com/RafaelCaetanoTeixeira</a> <br>
         <hr>
     </body>
 </html>
