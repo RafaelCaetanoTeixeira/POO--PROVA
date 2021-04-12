@@ -5,20 +5,30 @@
 <br>
     
     <% if(request.getParameter("session.user")!= null){
-        session.setAtribute("session.user", request.getParameter("session.user"));
+        session.setAttribute("session.user", request.getParameter("session.user"));
         response.sendRedirect(request.getRequestURI());
-    } else if(request.getParameter("session.sair") !=null){
-        session.removeAtribute("session.user");
+        
+    } else if(request.getParameter("session.sair") != null){
+        session.removeAttribute("session.user");
         response.sendRedirect(request.getRequestURI());
     }
     %>
     
-        <% if(session.getAtribute("session.user") !null){%>
+        <% if(session.getAttribute("session.user") != null){%>
         <form>
-            <p>Usuario: <% session.getAtribute("session.user")%></p>
-            <a href="dindex.jsp">Pagina Inicial</a>
+            <p>Usuario: <%= session.getAttribute("session.user") %></p>
+            <a href="index.jsp">Pagina Inicial</a>
             <a href="disciplinas.jsp">Disciplinas</a> <br><br>
             <input type="submit" name="session.sair" value="Sair"/>
-            
-            
         </form>
+            
+        <% }else{ %>
+        
+        <form>
+            Usuario: <input type="text" name="session.user"/>
+            <input type="submit" name="session.entrar" value="Entrar" />
+        </form>
+        
+        <% } %>
+        
+        <br><hr>
